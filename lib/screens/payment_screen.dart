@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_pay/utils/cartItems.dart';
 import 'package:pay/pay.dart';
 
@@ -36,6 +37,17 @@ class _PaymentScreenState extends State<PaymentScreen> {
   void onGooglePayResult(paymentResult) {
     // Here we can write database logic to update the order status
     debugPrint(paymentResult.toString());
+
+    // Show Payment Success Toast Message
+    Fluttertoast.showToast(
+      msg: 'Payment Successful',
+      toastLength: Toast.LENGTH_SHORT,
+      gravity: ToastGravity.BOTTOM,
+      timeInSecForIosWeb: 1,
+      backgroundColor: Colors.green,
+      textColor: Colors.white,
+      fontSize: 16.0,
+    );
   }
 
   @override
